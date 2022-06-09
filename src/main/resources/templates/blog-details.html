@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/head :: head"/>
+<body>
+<header th:insert="fragments/header :: header"></header>
+<div class="container mt-5">
+    <h1>Blog</h1>
+    <div th:each="el : ${post}" class="alert alert-info mt-2" >
+        <h1 th:text="${el.title}"/>
+        <p th:text="${el.full_text}"/>
+        <p th:text="${el.view}"/>
+        <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn btn-warning">Edit</a>
+        <a th:href="'/blog/' + ${el.id} + '/remove'" class="btn btn-warning">Delete</a>
+    </div>
+</div>
+<footer th:insert="fragments/footer :: footer"></footer>
+
+</body>
+</html>
