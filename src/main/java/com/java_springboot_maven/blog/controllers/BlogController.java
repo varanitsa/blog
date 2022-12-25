@@ -41,7 +41,7 @@ public class BlogController {
         if(!postRepository.existsById(id)) {
             return "redirect:/blog";
         }
-        Optional<Post> post = postRepository.findAllById(id);,
+        Optional<Post> post = postRepository.findAllById(id);
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post" ,res);
